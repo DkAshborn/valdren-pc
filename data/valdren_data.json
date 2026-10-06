@@ -1,0 +1,98 @@
+{
+  "version": "0.1-native",
+  "title": "Valdren",
+  "locations": {
+    "praca": {
+      "name": "Praça Central",
+      "zone": "Centro",
+      "desc": "O coração de Valdren, cercado por comércio, guardas e viajantes.",
+      "public": true,
+      "npcs": [
+        "nina"
+      ]
+    },
+    "mercado": {
+      "name": "Mercado",
+      "zone": "Centro",
+      "desc": "Barracas, mercadores e o barulho constante de moedas.",
+      "public": true,
+      "npcs": []
+    },
+    "taverna": {
+      "name": "Taverna de Lúcia",
+      "zone": "Centro",
+      "desc": "Comida, quartos, rumores e aventureiros.",
+      "public": true,
+      "npcs": [
+        "lucia"
+      ]
+    },
+    "guilda": {
+      "name": "Guilda dos Aventureiros",
+      "zone": "Centro",
+      "desc": "Contratos, ranks e missões.",
+      "public": true,
+      "npcs": [
+        "nina"
+      ]
+    },
+    "forja": {
+      "name": "Forja de Erza",
+      "zone": "Distrito dos Ofícios",
+      "desc": "Metal quente, martelos e equipamentos.",
+      "public": true,
+      "npcs": [
+        "erza"
+      ]
+    },
+    "treino": {
+      "name": "Campo de Treino",
+      "zone": "Distrito Militar",
+      "desc": "Área usada por guardas e aventureiros.",
+      "public": true,
+      "npcs": [
+        "tessia"
+      ]
+    },
+    "alquimia": {
+      "name": "Loja de Selene",
+      "zone": "Distrito dos Ofícios",
+      "desc": "Poções, ervas e experimentos.",
+      "public": true,
+      "npcs": [
+        "selene"
+      ]
+    },
+    "costura": {
+      "name": "Ateliê",
+      "zone": "Distrito dos Ofícios",
+      "desc": "Roupas e equipamentos de tecido e couro.",
+      "public": true,
+      "npcs": []
+    }
+  },
+  "npcs": {
+    "lucia": {
+      "name": "Lúcia",
+      "role": "Dona da taverna"
+    },
+    "nina": {
+      "name": "Nina",
+      "role": "Recepcionista da Guilda"
+    },
+    "erza": {
+      "name": "Erza",
+      "role": "Ferreira"
+    },
+    "tessia": {
+      "name": "Tessia",
+      "role": "Instrutora"
+    },
+    "selene": {
+      "name": "Selene",
+      "role": "Alquimista"
+    }
+  },
+  "items": {},
+  "quests": {}
+}
