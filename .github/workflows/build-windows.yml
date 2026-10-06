@@ -1,0 +1,46 @@
+name: Build Valdren Windows
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [ main ]
+
+permissions:
+  contents: read
+
+jobs:
+  build-windows:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Download Godot 4.3
+        run: |
+          wget -q https://github.com/godotengine/godot/releases/download/4.3-stable/Godot_v4.3-stable_linux.x86_64.zip -O godot.zip
+          unzip -q godot.zip
+          chmod +x Godot_v4.3-stable_linux.x86_64
+
+      - name: Install export templates
+        run: |
+          wget -q https://github.com/godotengine/godot/releases/download/4.3-stable/Godot_v4.3-stable_export_templates.tpz -O templates.tpz
+          mkdir -p /tmp/godot_templates
+          unzip -q templates.tpz -d /tmp/godot_templates
+          mkdir -p "$HOME/.local/share/godot/export_templates/4.3.stable"
+          cp -r /tmp/godot_templates/templates/* "$HOME/.local/share/godot/export_templates/4.3.stable/"
+
+      - name: Import project
+        run: ./Godot_v4.3-stable_linux.x86_64 --headless --path . --editor --quit
+
+      - name: Export Windows EXE
+        run: |
+          mkdir -p build/windows
+          ./Godot_v4.3-stable_linux.x86_64 --headless --path . --export-release "Windows Desktop" build/windows/Valdren.exe
+          test -f build/windows/Valdren.exe
+
+      - name: Upload Valdren portable
+        uses: actions/upload-artifact@v4
+        with:
+          name: Valdren-Windows-Portable
+          path: build/windows/Valdren.exe
+          if-no-files-found: error
